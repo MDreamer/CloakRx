@@ -99,7 +99,7 @@ void setup() {
 	//"arm" the onshot
 	oneShotFade = 0;
 }
-
+/*
 void chaseLED()
 {
 	// in order to not use delay we use this mechanisem.. each light-action is given 10 ms to preform
@@ -111,7 +111,7 @@ void chaseLED()
 	}
 	
 }
-
+*/
 
 void loop() {
 	
@@ -159,16 +159,16 @@ void loop() {
 			destColor.blue = 0;
 			statusPattern = 0;
 			break;
-		case 4:
-			chaseLED();
-		case 9:
-			changeColor(255,0,0);
-			ledStrip.write(colors, LED_COUNT);
-			delay(200);
-			changeColor(0,0,0);
-			ledStrip.write(colors, LED_COUNT);
-			delay(1800);
-			break;
+		//case 4:
+		//	chaseLED();
+		//case 9:
+		//	changeColor(255,0,0);
+		//	ledStrip.write(colors, LED_COUNT);
+		//	delay(200);
+		//	changeColor(0,0,0);
+		//	ledStrip.write(colors, LED_COUNT);
+		//	delay(1800);
+		//	break;
 		//default: //if all fails it means something is wrong....
 		//	changeColor(emontx.data1,emontx.data2,emontx.data3);
 		//	break;
