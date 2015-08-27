@@ -99,7 +99,7 @@ void setup() {
 	//"arm" the onshot
 	oneShotFade = 0;
 }
-/*
+/* 
 void chaseLED()
 {
 	// in order to not use delay we use this mechanisem.. each light-action is given 10 ms to preform
