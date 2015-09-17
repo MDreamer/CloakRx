@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CloakRx", "CloakRx.cppproj", "{78EABBE9-A8BB-4640-8BD3-06A43F6BCE2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78EABBE9-A8BB-4640-8BD3-06A43F6BCE2D}.Debug|AVR.ActiveCfg = Debug|AVR
+		{78EABBE9-A8BB-4640-8BD3-06A43F6BCE2D}.Debug|AVR.Build.0 = Debug|AVR
+		{78EABBE9-A8BB-4640-8BD3-06A43F6BCE2D}.Release|AVR.ActiveCfg = Release|AVR
+		{78EABBE9-A8BB-4640-8BD3-06A43F6BCE2D}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

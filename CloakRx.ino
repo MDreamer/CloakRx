@@ -9,8 +9,9 @@
 
 //LEDs part
 // Create a buffer for holding the colors (3 bytes per color).
-#define LED_CloakCount 13
+#define LED_CloakCount 8
 #define LED_NeckCount 8
+#define LED_TailCount 5
 #define LED_COUNT 50
 
 long previousMillisVoltageLED = 0;        // will store last time LED was updated
@@ -35,7 +36,6 @@ const int emonTx_NodeID=10;            //emonTx node ID - The Tx NodeID
 
 // Create an ledStrip object and specify the pin it will use.
 PololuLedStrip<6> ledStrip;
-
 int pinBotton = 4;
 
 // Variables will change:
@@ -72,8 +72,9 @@ int oneShotFade;
 rgb_color destColor;
 rgb_color colors[LED_COUNT];
 rgb_color colors_black[LED_COUNT];
-int CloakLed[LED_CloakCount]={4,5,6,7,8,9,10,18,20,21,25,26,31};
+int CloakLed[LED_CloakCount]={4,10,18,20,21,25,26,31};
 int NeckLed[LED_NeckCount]={19,22,23,24,27,28,29,30};
+int TailLed[LED_TailCount]={5,6,7,8,9};
 
 void setup() {
 	pinMode(pinBotton, INPUT);
@@ -174,11 +175,11 @@ void loop() {
 		//	break;
 	}
 	
-	if (statusPattern != 9)
-	{
+	//if (statusPattern != 9)
+	//{
 		ledStrip.write(colors, LED_COUNT);
 		delay(20);	
-	}
+	//}
 	
 	if (rf12_recvDone()){
 		if (rf12_crc == 0 && (rf12_hdr & RF12_HDR_CTL) == 0)
@@ -288,6 +289,7 @@ void changeColor (int rColor, int gColor, int bColor)
 {
 	int j=0;
 	int k=0;
+	int m=0;
 	for (int i;i<=LED_COUNT;i++)
 	{
 		// brights color of the LED
@@ -301,6 +303,12 @@ void changeColor (int rColor, int gColor, int bColor)
 		{
 			colors[i] = (rgb_color){(rColor/10), (gColor/10), (bColor/10) };
 			k++;
+		}
+		//for softer/low light on the neck
+		if (TailLed[m] == i) //works only on cloak LEDs
+		{
+			colors[i] = (rgb_color){(rColor/8), (gColor/8), (bColor/8) };
+			m++;
 		}
 	}
 }
